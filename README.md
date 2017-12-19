@@ -1,18 +1,25 @@
 dash-insight-installer.sh
 =======
 
-[dashd-installer.sh](https://github.com/dashhive/dashd-installer.sh) |
+Related: [dashd-installer.sh](https://github.com/dashhive/dashd-installer.sh) |
 [dash-insight-installer.sh](https://github.com/dashhive/dash-insight-installer.sh)
+
+The **Dash Insight API** is the free, open source Dash Block Explorer (a fork of bitcore for the Dash Community).
+It allows you to view, transact and create payments on the Dash Blockchain.
+You can think of it like a Free, Open Source version of [BlockCypher](https://www.blockcypher.com/dev/dash/)'s Dash API.
+
+By using the Insight API directly you can create raw signed transactions without a proxy service.
+
+Installation
+============
 
 This script installs the Dash Insight API on Debian based systems such as Ubuntu (i.e. on Digital Ocean) and Raspbian (i.e. on Raspberry Pi)
 
-This installs the following components (and their dependencies) to `/opt/dashpay`:
+It installs the following components (and their dependencies) as a self-contained app in `/opt/dashpay`:
 
 * Dash Full Node [`dashpay/dash`](https://github.com/dashpay/dash)
+  * **Note**: You will need several gigabytes of free space (10GB+ at the time of this writing)
 * Insight API [`dashevo/insight-api-dash`](https://github.com/dashevo/insight-api-dash#getting-started)
-
-Installation
------
 
 ```bash
 git clone https://github.com/dashhive/dash-insight-installer.sh.git
