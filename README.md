@@ -37,6 +37,17 @@ The configs can be edited at:
 /opt/dashpay/etc/bitcore-node-dash.json
 ```
 
+Usage
+-----
+
+You can access the API
+
+<http://IP-ADDR/insight-api-dash/addrs/ygwNQgE5f15Ygopbs2KPRYMS4TcffqBpsz,ygw5yCtVkx3hREke4L8qDqQtnNoAiPKTSx/utxo>
+
+Or the Insight UI
+
+<http://IP-ADDR/insight/>
+
 daemon control
 --------
 
