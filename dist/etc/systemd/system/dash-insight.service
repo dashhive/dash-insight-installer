@@ -4,8 +4,8 @@
 # sudo chown -R dashpay:dashpay /opt/dashpay/
 
 [Unit]
-Description=A Full Dash Node
-Documentation=https://github.com/dashpay/dash
+Description=Dash Insight API
+Documentation=https://github.com/dashevo/insight-api-dash
 After=network-online.target
 Wants=network-online.target systemd-networkd-wait-online.service
 
@@ -25,7 +25,7 @@ Group=dashpay
 WorkingDirectory=/opt/dashpay
 # custom directory cannot be set and will be the place where dashpay exists, not the working directory
 #ExecStart=/opt/dashpay/bin/dashd -daemon -conf=/opt/dashpay/etc/dash.conf -datadir=/opt/dashpay/var
-ExecStart=/opt/dashpay/bin/dashd -conf=/opt/dashpay/etc/dash.conf -datadir=/opt/dashpay/var
+ExecStart=/opt/dashpay/bitcore/bin/bitcore-node-dash start -c /opt/dashpay/etc/
 ExecReload=/bin/kill -USR1 $MAINPID
 
 # Limit the number of file descriptors and processes; see `man systemd.exec` for more limit settings.

@@ -36,7 +36,7 @@ pushd $dash_prefix/bitcore
   $my_npm install insight-ui-dash --S
 
   chmod a+x ./bin/bitcore-node-dash
-  LD_LIBRARY_PATH="$my_prefix/lib:${LD_RUN_PATH:-}" $my_node $dash_prefix/bitcore/bin/bitcore-node-dash start -c $dash_prefix/
+  #LD_LIBRARY_PATH="$my_prefix/lib:${LD_RUN_PATH:-}" $my_node $dash_prefix/bitcore/bin/bitcore-node-dash start -c $dash_prefix/
 popd
 
 sudo rsync -av ./bitcore-node-dash.json $dash_prefix/etc/
