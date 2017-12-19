@@ -28,6 +28,8 @@ Everything for Insight API installs to `/opt/dashpay`:
 /opt/dashpay/bin/npm
 ```
 
+*Uninstall*: `rm -rf /opt/dashpay`
+
 Configuration
 --------
 
@@ -35,6 +37,7 @@ The configs can be edited at:
 
 ```
 /opt/dashpay/etc/bitcore-node-dash.json
+/etc/systemd/system/dash-insight.service
 ```
 
 Usage
