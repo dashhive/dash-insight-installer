@@ -9,7 +9,7 @@ export NODE_VERSION=v8.9.3
 export PKG_CONFIG_PATH=$my_prefix/lib/pkgconfig
 mkdir -p $dash_prefix
 
-git clone https://github.com/dashhive/dashd-installer.sh.git
+git clone --depth 1 https://github.com/dashhive/dashd-installer.sh.git
 pushd dashd-installer.sh
   source install.sh
 popd
