@@ -1,7 +1,12 @@
 dash-insight-installer.sh
 =======
 
-This script installs a dash full node on Debian based systems such as Ubuntu (i.e. on Digital Ocean) and Raspbian (i.e. on Raspberry Pi)
+[dashd-installer.sh](https://github.com/dashhive/dashd-installer.sh) |
+[dash-insight-installer.sh](https://github.com/dashhive/dash-insight-installer.sh)
+
+This script installs the Dash Insight API on Debian based systems such as Ubuntu (i.e. on Digital Ocean) and Raspbian (i.e. on Raspberry Pi)
+
+This installs the following components (and their dependencies) to `/opt/dashpay`:
 
 * Dash Full Node [`dashpay/dash`](https://github.com/dashpay/dash)
 * Insight API [`dashevo/insight-api-dash`](https://github.com/dashevo/insight-api-dash#getting-started)
@@ -13,17 +18,6 @@ Installation
 git clone https://github.com/dashhive/dash-insight-installer.sh.git
 pushd ./dash-insight-installer
 bash install.sh
-```
-
-Everything for `dashd` installs to `/opt/dashpay`:
-
-```
-/opt/dashpay/bin/dashd
-/opt/dashpay/docs
-/opt/dashpay/etc
-/opt/dashpay/include
-/opt/dashpay/lib
-/opt/dashpay/share
 ```
 
 Everything for Insight API installs to `/opt/dashpay`:
@@ -40,7 +34,6 @@ Configuration
 The configs can be edited at:
 
 ```
-/opt/dashpay/etc/dash.conf
 /opt/dashpay/etc/bitcore-node-dash.json
 ```
 
@@ -50,29 +43,26 @@ daemon control
 `dashd` can be restarted with `systemctl`:
 
 ```bash
-systemctl restart dashd
+systemctl restart dash-insight
 ```
 
 You can see the logs with `journalctl`:
 
 ```bash
-journalctl -xefu dashd
+journalctl -xefu dash-insight
 ```
 
 You can disable and enable `dashd` loading on startup:
 
 ```bash
-systemctl enable dashd
-systemctl disable dashd
+systemctl enable dash-insight
+systemctl disable dash-insight
 ```
 
 Manual daemon control
 -----------------
 
 ```
-install.sh
-## TODO systemd file for dash
-/opt/dashpay/bin/dashd -daemon -conf=/opt/dashpay/etc/dash.conf -datadir=/opt/dashpay/var
 /opt/dashpay/bitcore/bin/bitcore-node-dash start -c /opt/dashpay/etc/ # where bitcore-node-dash.json is
 ```
 

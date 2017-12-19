@@ -9,6 +9,11 @@ export NODE_VERSION=v8.9.3
 export PKG_CONFIG_PATH=$my_prefix/lib/pkgconfig
 mkdir -p $dash_prefix
 
+git clone https://github.com/dashhive/dashd-installer.sh.git
+pushd dashd-installer.sh
+  source install.sh
+popd
+
 export CPPFLAGS="-I$my_prefix/include ${CPPFLAGS:-}"
 export CXXFLAGS="$CPPFLAGS"
 export LDFLAGS="-L$my_prefix/lib ${LDFLAGS:-}"
@@ -34,4 +39,9 @@ pushd $dash_prefix/bitcore
   LD_LIBRARY_PATH="$my_prefix/lib:${LD_RUN_PATH:-}" $my_node $dash_prefix/bitcore/bin/bitcore-node-dash start -c $dash_prefix/
 popd
 
-rsync -av ./bitcore-node-dash.json /opt/dashpay/etc/
+sudo rsync -av ./bitcore-node-dash.json $dash_prefix/etc/
+sudo chown -R dashpay:dashpay $dash_prefix/
+sudo rsync -av ./dist/etc/systemd/system/dash-insight.conf /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable dash-insight
+sudo systemctl start dash-insight
