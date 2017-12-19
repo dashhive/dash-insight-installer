@@ -28,6 +28,11 @@ curl -fsSL bit.ly/node-installer | bash -s -- --no-dev-deps
 git clone --depth 1 https://github.com/dashevo/bitcore-node-dash $dash_prefix/bitcore -b skip-dash-download
 
 pushd $dash_prefix/bitcore
+  fallocate -l 2G ./tmp.swap
+  mkswap ./tmp.swap
+  chmod 0600 ./tmp.swap
+  swapon ./tmp.swap
+
   my_node="$dash_prefix/bin/node"
   my_npm="$my_node $dash_prefix/bin/npm"
   $my_npm install
@@ -37,6 +42,9 @@ pushd $dash_prefix/bitcore
 
   chmod a+x ./bin/bitcore-node-dash
   #LD_LIBRARY_PATH="$my_prefix/lib:${LD_RUN_PATH:-}" $my_node $dash_prefix/bitcore/bin/bitcore-node-dash start -c $dash_prefix/
+
+  swapoff ./tmp.swap
+  rm ./tmp.swap
 popd
 
 sudo rsync -av ./bitcore-node-dash.json $dash_prefix/etc/
