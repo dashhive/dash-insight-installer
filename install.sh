@@ -10,7 +10,7 @@ export PKG_CONFIG_PATH=$my_prefix/lib/pkgconfig
 mkdir -p $dash_prefix
 
 # don't try to reinstall dashd if it's already installed
-if [ ! -f /opt/dashpay/bin/dashd ]; then;
+if [ ! -f /opt/dashpay/bin/dashd ]; then
   git clone --depth 1 https://github.com/dashhive/dashd-installer.sh.git
   pushd dashd-installer.sh
     source install.sh
