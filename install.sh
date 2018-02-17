@@ -5,7 +5,7 @@ set -e
 my_prefix=/opt/dashpay
 dash_prefix=/opt/dashpay
 export NODE_PATH=$dash_prefix/lib/node_modules
-export NODE_VERSION=v8.9.3
+export NODE_VERSION=v8.9.4
 export PKG_CONFIG_PATH=$my_prefix/lib/pkgconfig
 mkdir -p $dash_prefix
 
