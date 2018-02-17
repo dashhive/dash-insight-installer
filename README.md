@@ -23,7 +23,7 @@ It installs the following components (and their dependencies) as a self-containe
 
 ```bash
 git clone https://github.com/dashhive/dash-insight-installer.sh.git
-pushd ./dash-insight-installer
+pushd ./dash-insight-installer.sh
 bash install.sh
 ```
 
