@@ -22,7 +22,7 @@ fi
 export CPPFLAGS="-I$my_prefix/include ${CPPFLAGS:-}"
 export CXXFLAGS="$CPPFLAGS"
 export LDFLAGS="-L$my_prefix/lib ${LDFLAGS:-}"
-export LD_RUN_PATH="$my_prefix/lib:$LD_RUN_PATH"
+export LD_RUN_PATH="$my_prefix/lib:${LD_RUN_PATH:-}"
 export PKG_CONFIG_PATH="$my_prefix/lib/pkgconfig"
 
 sudo apt install -y wget curl git python
