@@ -30,7 +30,7 @@ bash install.sh
 Everything for Insight API installs to `/opt/dashpay`:
 
 ```
-/opt/dashpay/bin/bitcore-node-dash
+/opt/dashpay/bitcore/bin/bitcore-node-dash
 /opt/dashpay/bin/node
 /opt/dashpay/bin/npm
 ```
@@ -73,12 +73,23 @@ You can see the logs with `journalctl`:
 journalctl -xefu dash-insight
 ```
 
-You can disable and enable `dashd` loading on startup:
+You can disable and enable `dash-insight` loading on startup:
 
 ```bash
 systemctl enable dash-insight
 systemctl disable dash-insight
 ```
+
+You will need to have `dashd` compiled and installed for the sake of native dependencies which
+are needed for `dash-insight`.
+
+If you do not actually need a full node on this machine (you're going to connect to an RPC on another system),
+you should disable it to conserve disk space and RAM:
+
+```bash
+systemctl disable dash-insight
+```
+
 
 Manual daemon control
 -----------------
@@ -87,23 +98,13 @@ Manual daemon control
 /opt/dashpay/bitcore/bin/bitcore-node-dash start -c /opt/dashpay/etc/ # where bitcore-node-dash.json is
 ```
 
-From testnet to mainnet
+Setting rpc auth
 --------
 
-Replace `testnet=1` with `testnet=0` in `~/.dashcore/dash.conf`
+You will need to make sure that the `rpcuser`, `rpcpassword`, and IP and port information match between the two config files:
 
-Change `network: "testnet"` to `network: "mainnet"` in `bitcore-node-dash.json`
-
-Setting rpcauth
---------
-
-```
-/opt/dashpay/dash/share/rpcuser/rpcuser.py dashd
-String to be appended to /opt/dashpay/dash.conf:
-rpcauth=dashd:d390a090f89a2354a8f2492cefd53$733490c2dddc50f61802d2038e9d238a75d3d1dec6ca19240cb9399d9a7728f1
-Your password:
-UHpQuY6Xde8_HJVWwEMn928n7-O4O3mrSwOZ0pR0-PM=
-```
+* `/opt/dashpay/etc/bitcore-node-dash.json`
+* `/opt/dashpay/etc/dash.conf`
 
 Resources
 ====
