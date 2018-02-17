@@ -9,10 +9,15 @@ export NODE_VERSION=v8.9.3
 export PKG_CONFIG_PATH=$my_prefix/lib/pkgconfig
 mkdir -p $dash_prefix
 
-git clone --depth 1 https://github.com/dashhive/dashd-installer.sh.git
-pushd dashd-installer.sh
-  source install.sh
-popd
+# don't try to reinstall dashd if it's already installed
+if [ ! -f /opt/dashpay/bin/dashd ]; then;
+  git clone --depth 1 https://github.com/dashhive/dashd-installer.sh.git
+  pushd dashd-installer.sh
+    source install.sh
+  popd
+else
+  echo "It looks like dashd is already installed at '/opt/dashpay/bin/dashd', that's great!"
+fi
 
 export CPPFLAGS="-I$my_prefix/include ${CPPFLAGS:-}"
 export CXXFLAGS="$CPPFLAGS"
