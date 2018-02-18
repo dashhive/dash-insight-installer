@@ -10,6 +10,11 @@ You can think of it like a Free, Open Source version of [BlockCypher](https://ww
 
 By using the Insight API directly you can create raw signed transactions without a proxy service.
 
+Screencast
+----------
+
+[![How to Install Dash Insights the Quick'n'Easy Way](https://img.youtube.com/vi/27dqEkhzCIc/0.jpg)](https://www.youtube.com/watch?v=27dqEkhzCIc)
+
 Installation
 ============
 
